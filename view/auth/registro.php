@@ -26,15 +26,6 @@
     <p class="error"><?= $error ?></p>
 <?php endif; ?>
 
-<form method="POST" action="index.php?ruta=procesar_registro">
-    <label>Usuario
-        <input type="text" name="usuario" required>
-    </label><br>
-    <label>Contraseña
-        <input type="password" name="clave" required>
-    </label><br>
-    <button type="submit">Crear cuenta</button>
-</form>
 
 <?php include __DIR__.'/../templates/footer.php'; ?>
 </body>
