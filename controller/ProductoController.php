@@ -20,7 +20,7 @@ class ProductoController
     ];
     public static function mostrarCrear()
     {
-        session_start();
+        //session_start();
         self::asegurarLogin();
         include __DIR__ . '/../view/producto/crear.php';
     }

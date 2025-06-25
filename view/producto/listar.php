@@ -37,12 +37,12 @@ $esGerencia = ($_SESSION['usuario']['rol'] === 'gerencia');   // 💡 ¡aquí se
             <td><?= $p['fecha_despacho'] ?></td>
             <td><?= htmlspecialchars($p['numero_seguimiento']) ?></td>
             <td>
-                <a href="index.php?ruta=producto_editar&id=<?= $p['id'] ?>">Editar</a>
+                <a class="action edit" href="index.php?ruta=producto_editar&id=<?= $p['id'] ?>">Editar</a>
                 <?php if ($esGerencia): ?>
-            |   <a href="index.php?ruta=producto_eliminar&id=<?= $p['id'] ?>"
+            |   <a class="action delete" href="index.php?ruta=producto_eliminar&id=<?= $p['id'] ?>"
                 onclick="return confirm('¿Eliminar este producto?')">Borrar</a>
             <?php endif; ?>
-    | <a href="index.php?ruta=producto_movimientos&id=<?= $p['id'] ?>">Historial</a>
+    | <a class="action hist" href="index.php?ruta=producto_movimientos&id=<?= $p['id'] ?>">Historial</a>
 </td>
         </tr>
     <?php endwhile; ?>
