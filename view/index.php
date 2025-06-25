@@ -4,6 +4,7 @@ if (empty($_SESSION['usuario'])) {
     header('Location: index.php?ruta=login');
     exit;
 }
+$esGerencia = ($_SESSION['usuario']['rol'] === 'gerencia');
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -20,8 +21,11 @@ if (empty($_SESSION['usuario'])) {
 <nav>
     <a href="index.php?ruta=producto_crear">➕ Crear producto</a> |
     <a href="index.php?ruta=producto_listar">📋 Ver productos</a> |
+    <?php if ($esGerencia): ?>
+        <a href="index.php?ruta=usuario_crear">➕ Nuevo usuario</a> |
+    <?php endif; ?>
     <a href="index.php?ruta=logout">⏻ Cerrar sesión</a>
-</nav> 
+</nav>
 </div>
 
 

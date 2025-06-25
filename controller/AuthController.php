@@ -11,7 +11,8 @@ class AuthController
 
     public static function mostrarRegistro()
     {
-        include __DIR__.'/../view/auth/registro.php';
+        self::asegurarGerencia();
+        include __DIR__.'/../view/usuario/crear.php';
     }
 
     public static function procesarLogin()
@@ -37,6 +38,7 @@ class AuthController
 
     public static function procesarRegistro()
     {
+        self::asegurarGerencia();
         $nombre = $_POST['usuario'] ?? '';
         $clave  = $_POST['clave']   ?? '';
 
@@ -44,7 +46,22 @@ class AuthController
             header('Location: index.php?ruta=login&exito=1');
         } else {
             $error = 'Nombre ya registrado';
-            include __DIR__.'/../view/auth/registro.php';
+            include __DIR__.'/../view/usuario/crear.php';
+        }
+    }
+
+    /* ---------- helpers ---------- */
+
+    private static function asegurarGerencia()
+    {
+        if (session_status() === PHP_SESSION_NONE) session_start();
+        if (empty($_SESSION['usuario'])) {
+            header('Location: index.php?ruta=login');
+            exit;
+        }
+        if ($_SESSION['usuario']['rol'] !== 'gerencia') {
+            header('Location: index.php?ruta=menu&err=perm');
+            exit;
         }
     }
 }

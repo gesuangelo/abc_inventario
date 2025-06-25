@@ -3,13 +3,13 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Registro de usuario</title>
+    <title>Nuevo usuario</title>
     <link rel="stylesheet" href="/abc_inventario/assets/css/style.css">
 </head>
 <body>
 <?php include __DIR__.'/../templates/header.php'; ?>
 <div class="card form-centered">
-    <h2>Registrarse</h2>
+    <h2>Crear usuario</h2>
     <form method="POST" action="index.php?ruta=usuario_guardar">
     <label>Usuario
         <input type="text" name="usuario" required>
@@ -17,7 +17,7 @@
     <label>Contraseña
         <input type="password" name="clave" required>
     </label><br>
-    <button type="submit">Crear cuenta</button>
+    <button type="submit">Crear usuario</button>
 </form>
 </div>
 

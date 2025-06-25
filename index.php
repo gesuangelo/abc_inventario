@@ -49,13 +49,13 @@ switch ($ruta) {
     case 'login':
         AuthController::mostrarLogin();
         break;
-    case 'registro':
+    case 'usuario_crear':
         AuthController::mostrarRegistro();
         break;
     case 'verificar_login':
         AuthController::procesarLogin();
         break;
-    case 'procesar_registro':
+    case 'usuario_guardar':
         AuthController::procesarRegistro();
         break;
     case 'menu':                 // pequeño menú después del login
