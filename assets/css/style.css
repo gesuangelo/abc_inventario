@@ -1,0 +1,74 @@
+/* ------------------- variables (fácil de ajustar después) ------------------ */
+:root{
+    --bg-main:#EDF1F5;
+    --bg-card:#FFFFFF;
+    --accent:#154360;
+    --accent-soft:#5DADE2;
+    --ok:#27AE60;
+    --error:#CB4335;
+    --radius:6px;
+    --shadow:0 2px 6px rgba(0,0,0,.08);
+    --font:"Segoe UI", Helvetica, Arial, sans-serif;
+  }
+  
+  /* ------------------- reset/estructura básica ------------------------------ */
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:var(--font);
+    background:var(--bg-main);
+    color:#333;
+    padding:20px;
+  }
+  a{color:var(--accent-soft);text-decoration:none;}
+  a:hover{color:var(--accent);}
+  
+  /* ------------------- cabecera --------------------------------------------- */
+  header{
+    background:var(--accent);
+    color:#fff;
+    padding:15px 25px;
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    margin-bottom:25px;
+  }
+  header h1{font-size:1.4rem;font-weight:500;}
+  nav a{margin-right:15px;font-weight:500;}
+  
+  /* ------------------- tarjetas / contenedores ------------------------------ */
+  .card{
+    background:var(--bg-card);
+    padding:20px;
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+  }
+  
+  /* ------------------- formularios ------------------------------------------ */
+  form label{display:block;margin-bottom:12px;font-weight:500;color:var(--accent);}
+  form input,form select{
+    width:100%;padding:8px 10px;border:1px solid #ccc;border-radius:var(--radius);
+  }
+  form button{
+    padding:8px 20px;border:0;border-radius:var(--radius);
+    background:var(--accent);color:#fff;font-weight:bold;cursor:pointer;
+  }
+  form button:hover{background:var(--accent-soft);}
+  
+  /* ------------------- tablas ------------------------------------------------ */
+  table{
+    width:100%;border-collapse:collapse;margin-top:10px;background:var(--bg-card);
+    box-shadow:var(--shadow);
+  }
+  th,td{padding:10px 12px;text-align:left;border-bottom:1px solid #e1e5ea;}
+  th{background:var(--accent);color:#fff;}
+  tr:hover td{background:#f7f9fb;}
+  
+  /* ------------------- mensajes --------------------------------------------- */
+  .ok   {color:var(--ok);margin:10px 0;font-weight:bold;}
+  .error{color:var(--error);margin:10px 0;font-weight:bold;}
+  
+  /* ------------------- botones de acción en tabla --------------------------- */
+  .action{font-size:.9rem;margin-right:8px}
+  .action.edit   {color:var(--accent-soft);}
+  .action.delete {color:var(--error);}
+  .action.hist   {color:var(--accent);}
+  

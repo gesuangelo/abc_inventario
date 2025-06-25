@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Listado de productos</title>
+    <link rel="stylesheet" href="/abc_inventario/assets/css/style.css">
+</head>
+<body>
+<?php include __DIR__ . '/../templates/header.php'; ?>
+
+<h2>Productos registrados</h2>
+
+<?php
+if (session_status() === PHP_SESSION_NONE) session_start();   // ya tienes la sesión
+$esGerencia = ($_SESSION['usuario']['rol'] === 'gerencia');   // 💡 ¡aquí se crea!
+?>
+
+<?php if (isset($_GET['msg'])): ?>
+    <p class="ok">Producto <?= htmlspecialchars($_GET['msg']) ?> correctamente</p>
+<?php endif; ?>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID</th><th>Nombre</th><th>Ubicación</th>
+            <th>Llegada</th><th>Despacho</th><th>Seguimiento</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+    <?php while ($p = $productos->fetch_assoc()): ?>
+        <tr>
+            <td><?= $p['id'] ?></td>
+            <td><?= htmlspecialchars($p['nombre']) ?></td>
+            <td><?= htmlspecialchars($p['ubicacion']) ?></td>
+            <td><?= $p['fecha_llegada'] ?></td>
+            <td><?= $p['fecha_despacho'] ?></td>
+            <td><?= htmlspecialchars($p['numero_seguimiento']) ?></td>
+            <td>
+                <a href="index.php?ruta=producto_editar&id=<?= $p['id'] ?>">Editar</a>
+                <?php if ($esGerencia): ?>
+            |   <a href="index.php?ruta=producto_eliminar&id=<?= $p['id'] ?>"
+                onclick="return confirm('¿Eliminar este producto?')">Borrar</a>
+            <?php endif; ?>
+    | <a href="index.php?ruta=producto_movimientos&id=<?= $p['id'] ?>">Historial</a>
+</td>
+        </tr>
+    <?php endwhile; ?>
+    </tbody>
+</table>
+
+<a href="index.php?ruta=producto_crear">➕ Nuevo producto</a> |
+<a href="index.php?ruta=menu">⬅ Volver al menú</a>
+
+<?php include __DIR__ . '/../templates/footer.php'; ?>
+</body>
+</html>
