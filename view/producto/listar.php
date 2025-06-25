@@ -8,7 +8,7 @@
 <body>
 <?php include __DIR__ . '/../templates/header.php'; ?>
 
-<h2>Productos registrados</h2>
+
 
 <?php
 if (session_status() === PHP_SESSION_NONE) session_start();   // ya tienes la sesión
@@ -18,8 +18,9 @@ $esGerencia = ($_SESSION['usuario']['rol'] === 'gerencia');   // 💡 ¡aquí se
 <?php if (isset($_GET['msg'])): ?>
     <p class="ok">Producto <?= htmlspecialchars($_GET['msg']) ?> correctamente</p>
 <?php endif; ?>
-
-<table border="1">
+<div  class="card fit">
+    <h2>Productos registrados</h2>
+    <table border="1">
     <thead>
         <tr>
             <th>ID</th><th>Nombre</th><th>Ubicación</th>
@@ -36,13 +37,18 @@ $esGerencia = ($_SESSION['usuario']['rol'] === 'gerencia');   // 💡 ¡aquí se
             <td><?= $p['fecha_llegada'] ?></td>
             <td><?= $p['fecha_despacho'] ?></td>
             <td><?= htmlspecialchars($p['numero_seguimiento']) ?></td>
-            <td>
-                <a class="action edit" href="index.php?ruta=producto_editar&id=<?= $p['id'] ?>">Editar</a>
-                <?php if ($esGerencia): ?>
-            |   <a class="action delete" href="index.php?ruta=producto_eliminar&id=<?= $p['id'] ?>"
-                onclick="return confirm('¿Eliminar este producto?')">Borrar</a>
-            <?php endif; ?>
-    | <a class="action hist" href="index.php?ruta=producto_movimientos&id=<?= $p['id'] ?>">Historial</a>
+            <td class="acciones">
+            <a class="action edit"
+            href="index.php?ruta=producto_editar&id=<?= $p['id'] ?>">Editar</a>
+
+            <?php if ($esGerencia): ?>
+            <a class="action delete"
+           href="index.php?ruta=producto_eliminar&id=<?= $p['id'] ?>"
+           onclick="return confirm('¿Eliminar este producto?')">Borrar</a>
+    <?php endif; ?>
+
+    <a class="action hist"
+       href="index.php?ruta=producto_movimientos&id=<?= $p['id'] ?>">Historial</a>
 </td>
         </tr>
     <?php endwhile; ?>
@@ -51,6 +57,8 @@ $esGerencia = ($_SESSION['usuario']['rol'] === 'gerencia');   // 💡 ¡aquí se
 
 <a href="index.php?ruta=producto_crear">➕ Nuevo producto</a> |
 <a href="index.php?ruta=menu">⬅ Volver al menú</a>
+</div>
+
 
 <?php include __DIR__ . '/../templates/footer.php'; ?>
 </body>

@@ -55,10 +55,13 @@
   
   /* ------------------- tablas ------------------------------------------------ */
   table{
-    width:100%;border-collapse:collapse;margin-top:10px;background:var(--bg-card);
+    width:100%;border-collapse:collapse;background:var(--bg-card);
     box-shadow:var(--shadow);
+    overflow:hidden;
   }
-  th,td{padding:10px 12px;text-align:left;border-bottom:1px solid #e1e5ea;}
+  th,td{padding:6px 10px;
+    text-align:left;
+    border-bottom:1px solid #e1e5ea;}
   th{background:var(--accent);color:#fff;}
   tr:hover td{background:#f7f9fb;}
   
@@ -72,3 +75,20 @@
   .action.delete {color:var(--error);}
   .action.hist   {color:var(--accent);}
   
+  .card.form-centered{
+    max-width:600px;          /* ancho máximo (ajústalo a tu gusto) */
+    margin:0 auto 25px auto;  /* centra horizontalmente y deja 25 px abajo */
+  }
+  
+  @media (min-width:768px){   /* un poco más ancho en pantallas grandes */
+    .card.form-centered{max-width:560px;}
+  }
+
+  .card.fit{
+    display:block;          /* ahora es un bloque, se puede centrar con margin:auto */
+    width:max-content;      /* mantiene el “shrink-wrap” (ancho = contenido)        */
+    margin:0 auto 25px;     /* auto a izquierda/derecha  ➜  centrado                */
+    padding: 10px;;              /* conserva tu preferencia de cero padding lateral     */
+  }
+  /* Quitamos anchura forzada a la tabla dentro de ella */
+  .card.fit > table { width:auto; }

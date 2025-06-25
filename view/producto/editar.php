@@ -7,8 +7,8 @@
 </head>
 <body>
 <?php include __DIR__ . '/../templates/header.php'; ?>
-
-<h2>Editar producto #<?= $producto['id'] ?></h2>
+<div class="card form-centered">
+    <h2>Editar producto #<?= $producto['id'] ?></h2>
 
 <form method="POST" action="index.php?ruta=producto_actualizar">
     <!-- Campo oculto para mantener el id -->
@@ -44,6 +44,8 @@
     <button type="submit">Actualizar</button>
     <a href="index.php?ruta=producto_listar">Cancelar</a>
 </form>
+</div>
+
 
 <?php include __DIR__ . '/../templates/footer.php'; ?>
 </body>

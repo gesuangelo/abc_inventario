@@ -7,8 +7,8 @@
 </head>
 <body>
 <?php include __DIR__ . '/../templates/header.php'; ?>
-
-<h2>Tracking de “<?= htmlspecialchars($producto['nombre']) ?>”</h2>
+<div class="card form-centered">
+    <h2>Tracking de “<?= htmlspecialchars($producto['nombre']) ?>”</h2>
 
 <table border="1">
     <thead>
@@ -23,6 +23,8 @@
     <?php endwhile; ?>
     </tbody>
 </table>
+</div>
+
 
 <a href="index.php?ruta=producto_listar">⬅ Volver al listado</a>
 

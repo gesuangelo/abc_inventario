@@ -14,14 +14,16 @@ if (empty($_SESSION['usuario'])) {
 </head>
 <body>
 <?php include __DIR__ . '/templates/header.php'; ?>
-
-<h2>Bienvenido, <?= htmlspecialchars($_SESSION['usuario']['nombre']) ?></h2>
+<div class="card form-centered">
+   <h2>Bienvenido, <?= htmlspecialchars($_SESSION['usuario']['nombre']) ?></h2>
 
 <nav>
     <a href="index.php?ruta=producto_crear">➕ Crear producto</a> |
     <a href="index.php?ruta=producto_listar">📋 Ver productos</a> |
     <a href="index.php?ruta=logout">⏻ Cerrar sesión</a>
-</nav>
+</nav> 
+</div>
+
 
 <?php include __DIR__ . '/templates/footer.php'; ?>
 </body>

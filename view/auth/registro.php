@@ -8,7 +8,7 @@
 </head>
 <body>
 <?php include __DIR__.'/../templates/header.php'; ?>
-<div class="card">
+<div class="card form-centered">
     <h2>Registrarse</h2>
     <form method="POST" action="index.php?ruta=procesar_registro">
     <label>Usuario

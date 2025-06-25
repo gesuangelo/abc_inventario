@@ -7,10 +7,9 @@
 </head>
 <body>
 <?php include __DIR__ . '/../templates/header.php'; ?>
-
-<h2>Registrar nuevo producto</h2>
-
-<form method="POST" action="index.php?ruta=producto_guardar">
+<div class="card form-centered">
+    <h2>Registrar nuevo producto</h2>
+    <form method="POST" action="index.php?ruta=producto_guardar">
     <label>Nombre
         <input type="text" name="nombre" required>
     </label><br>
@@ -37,6 +36,8 @@
     <button type="submit">Guardar</button>
     <a href="index.php?ruta=producto_listar">Cancelar</a>
 </form>
+</div>
+
 
 <?php include __DIR__ . '/../templates/footer.php'; ?>
 </body>
