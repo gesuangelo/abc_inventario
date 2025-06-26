@@ -15,11 +15,11 @@ if (session_status() === PHP_SESSION_NONE) session_start();   // ya tienes la se
 $esGerencia = ($_SESSION['usuario']['rol'] === 'gerencia');   // 💡 ¡aquí se crea!
 ?>
 
-<?php if (isset($_GET['msg'])): ?>
-    <p class="ok">Producto <?= htmlspecialchars($_GET['msg']) ?> correctamente</p>
-<?php endif; ?>
 <div  class="card fit">
     <h2>Productos registrados</h2>
+    <?php if (isset($_GET['msg'])): ?>
+        <p class="ok centrado">Producto <?= htmlspecialchars($_GET['msg']) ?> correctamente</p>
+    <?php endif; ?>
     <table border="1">
     <thead>
         <tr>
