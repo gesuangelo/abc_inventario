@@ -31,8 +31,9 @@
     box-shadow:var(--shadow);
     margin-bottom:25px;
   }
-  header h1{font-size:1.4rem;font-weight:500;}
-  nav a{margin-right:15px;font-weight:500;}
+header{ text-align:center; }
+header h1{font-size:1.6rem;font-weight:600;}
+nav a{margin-right:15px;font-weight:500;}
   
   /* ------------------- tarjetas / contenedores ------------------------------ */
   .card{
@@ -93,3 +94,9 @@
   }
   /* Quitamos anchura forzada a la tabla dentro de ella */
   .card.fit > table { width:auto; }
+
+  footer{
+    text-align:center;
+    margin-top:30px;
+    color:#777;
+  }
