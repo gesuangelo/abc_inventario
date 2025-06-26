@@ -23,6 +23,7 @@ class Usuario
             "INSERT INTO usuarios (nombre, clave, rol) VALUES (?,?,?)"
         );
         $stmt->bind_param('sss', $nombre, $clavePlano, $rol);
-        return $stmt->execute();
+        $stmt->execute();
+        return $stmt->affected_rows === 1;
     }
 }
