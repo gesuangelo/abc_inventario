@@ -17,12 +17,12 @@ if (empty($_SESSION['usuario'])) {
 <div class="card form-centered">
    <h2>Bienvenido, <?= htmlspecialchars($_SESSION['usuario']['nombre']) ?></h2>
 
-<nav>
-    <a href="index.php?ruta=producto_crear">➕ Crear producto</a> |
-    <a href="index.php?ruta=producto_listar">📋 Ver productos</a> |
+<nav class="menu">
+    <a href="index.php?ruta=producto_crear">➕ Crear producto</a>
+    <a href="index.php?ruta=producto_listar">📋 Ver productos</a>
 <?php if ($_SESSION['usuario']['rol'] === 'gerencia'): ?>
-    <a href="index.php?ruta=registro">👤 Nuevo usuario</a> |
-    <a href="index.php?ruta=usuario_listar">👥 Ver usuarios</a> |
+    <a href="index.php?ruta=registro">👤 Nuevo usuario</a>
+    <a href="index.php?ruta=usuario_listar">👥 Ver usuarios</a>
 <?php endif; ?>
     <a href="index.php?ruta=logout">⏻ Cerrar sesión</a>
 </nav>
