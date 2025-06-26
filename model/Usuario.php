@@ -26,4 +26,41 @@ class Usuario
         $stmt->execute();
         return $stmt->affected_rows === 1;
     }
+
+    /** Devuelve todos los usuarios */
+    public static function obtenerTodos()
+    {
+        $db = Conexion::getConexion();
+        return $db->query("SELECT id, nombre, rol FROM usuarios ORDER BY id DESC");
+    }
+
+    /** Obtiene un usuario por id */
+    public static function obtenerPorId($id)
+    {
+        $db   = Conexion::getConexion();
+        $stmt = $db->prepare("SELECT * FROM usuarios WHERE id = ?");
+        $stmt->bind_param('i', $id);
+        $stmt->execute();
+        return $stmt->get_result()->fetch_assoc();
+    }
+
+    /** Actualiza un usuario */
+    public static function actualizar($id, $nombre, $clavePlano, $rol)
+    {
+        $db   = Conexion::getConexion();
+        $stmt = $db->prepare(
+            "UPDATE usuarios SET nombre = ?, clave = ?, rol = ? WHERE id = ?"
+        );
+        $stmt->bind_param('sssi', $nombre, $clavePlano, $rol, $id);
+        return $stmt->execute();
+    }
+
+    /** Elimina un usuario */
+    public static function eliminar($id)
+    {
+        $db   = Conexion::getConexion();
+        $stmt = $db->prepare("DELETE FROM usuarios WHERE id = ?");
+        $stmt->bind_param('i', $id);
+        return $stmt->execute();
+    }
 }
