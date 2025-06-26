@@ -8,7 +8,7 @@
 <body>
 <?php include __DIR__ . '/../templates/header.php'; ?>
 <div class="card form-centered">
-    <h2>Editar usuario #<?= $usuario['id'] ?></h2>
+    <h2>Editando usuario: <?= $usuario['nombre'] ?></h2>
     <form method="POST" action="index.php?ruta=usuario_actualizar">
         <input type="hidden" name="id" value="<?= $usuario['id'] ?>">
         <label>Usuario

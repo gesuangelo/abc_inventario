@@ -15,7 +15,7 @@ class UsuarioController
 
     public static function listar()
     {
-        session_start();
+        //session_start();
         self::asegurarGerencia();
         $usuarios = Usuario::obtenerTodos();
         include __DIR__ . '/../view/usuario/listar.php';
@@ -23,7 +23,7 @@ class UsuarioController
 
     public static function mostrarEditar()
     {
-        session_start();
+        //session_start();
         self::asegurarGerencia();
         $id     = $_GET['id'] ?? 0;
         $usuario = Usuario::obtenerPorId($id);
