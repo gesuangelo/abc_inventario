@@ -15,7 +15,7 @@ class AuthController
         if (empty($_SESSION['usuario']) ||
             $_SESSION['usuario']['rol'] !== 'gerencia') {
             header('Location: index.php?ruta=menu');
-            return;
+            exit;
         }
         include __DIR__.'/../view/auth/registro.php';
     }
@@ -47,13 +47,14 @@ class AuthController
         if (empty($_SESSION['usuario']) ||
             $_SESSION['usuario']['rol'] !== 'gerencia') {
             header('Location: index.php?ruta=menu');
-            return;
+            exit;
         }
         $nombre = $_POST['usuario'] ?? '';
         $clave  = $_POST['clave']   ?? '';
 
         if (Usuario::crear($nombre, $clave)) {
             header('Location: index.php?ruta=login&exito=1');
+            exit;
         } else {
             $error = 'Nombre ya registrado';
             include __DIR__.'/../view/auth/registro.php';
