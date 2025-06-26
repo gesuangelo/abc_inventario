@@ -11,7 +11,7 @@ class AuthController
 
     public static function mostrarRegistro()
     {
-        session_start();
+        //session_start();
         if (empty($_SESSION['usuario']) ||
             $_SESSION['usuario']['rol'] !== 'gerencia') {
             header('Location: index.php?ruta=menu');
