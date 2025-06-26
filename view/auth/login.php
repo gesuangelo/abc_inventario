@@ -19,15 +19,15 @@
     </label><br>
     <button type="submit">Entrar</button>
 </form>
+
+    <?php if (!empty($_GET['exito'])): ?>
+        <p class="ok">¡Registrado correctamente, ahora inicia sesión!</p>
+    <?php endif; ?>
+
+    <?php if (!empty($error)): ?>
+        <p class="error"><?= $error ?></p>
+    <?php endif; ?>
 </div>
-
-<?php if (!empty($_GET['exito'])): ?>
-    <p class="ok">¡Registrado correctamente, ahora inicia sesión!</p>
-<?php endif; ?>
-
-<?php if (!empty($error)): ?>
-    <p class="error"><?= $error ?></p>
-<?php endif; ?>
 
 
 <?php include __DIR__.'/../templates/footer.php'; ?>
