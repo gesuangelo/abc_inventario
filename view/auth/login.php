@@ -10,6 +10,9 @@
 <?php include __DIR__.'/../templates/header.php'; ?>
 <div class="card form-centered">
     <h2>Login</h2>
+    <?php if (!empty($_GET['exito'])): ?>
+        <p class="ok">¡Registrado correctamente, ahora inicia sesión!</p>
+    <?php endif; ?>
     <form method="POST" action="index.php?ruta=verificar_login">
     <label>Usuario
         <input type="text" name="usuario" required>
@@ -20,10 +23,6 @@
     <button type="submit">Entrar</button>
 </form>
 </div>
-
-<?php if (!empty($_GET['exito'])): ?>
-    <p class="ok">¡Registrado correctamente, ahora inicia sesión!</p>
-<?php endif; ?>
 
 <?php if (!empty($error)): ?>
     <p class="error"><?= $error ?></p>

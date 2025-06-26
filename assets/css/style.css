@@ -66,8 +66,8 @@
   tr:hover td{background:#f7f9fb;}
   
   /* ------------------- mensajes --------------------------------------------- */
-  .ok   {color:var(--ok);margin:10px 0;font-weight:bold;}
-  .error{color:var(--error);margin:10px 0;font-weight:bold;}
+  .ok   {color:var(--ok);margin:10px 0;font-weight:bold;text-align:center;}
+  .error{color:var(--error);margin:10px 0;font-weight:bold;text-align:center;}
   
   /* ------------------- botones de acción en tabla --------------------------- */
   .action{font-size:.9rem;margin-right:8px}
