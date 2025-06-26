@@ -51,8 +51,12 @@ class AuthController
         }
         $nombre = $_POST['usuario'] ?? '';
         $clave  = $_POST['clave']   ?? '';
+        $rol    = $_POST['rol']     ?? 'operario';
+        if (!in_array($rol, ['gerencia', 'operario'])) {
+            $rol = 'operario';
+        }
 
-        if (Usuario::crear($nombre, $clave)) {
+        if (Usuario::crear($nombre, $clave, $rol)) {
             header('Location: index.php?ruta=login&exito=1');
             exit;
         } else {
