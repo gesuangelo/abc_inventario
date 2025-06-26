@@ -11,6 +11,12 @@ class AuthController
 
     public static function mostrarRegistro()
     {
+        //session_start();
+        if (empty($_SESSION['usuario']) ||
+            $_SESSION['usuario']['rol'] !== 'gerencia') {
+            header('Location: index.php?ruta=menu');
+            exit;
+        }
         include __DIR__.'/../view/auth/registro.php';
     }
 
@@ -37,11 +43,18 @@ class AuthController
 
     public static function procesarRegistro()
     {
+        session_start();
+        if (empty($_SESSION['usuario']) ||
+            $_SESSION['usuario']['rol'] !== 'gerencia') {
+            header('Location: index.php?ruta=menu');
+            exit;
+        }
         $nombre = $_POST['usuario'] ?? '';
         $clave  = $_POST['clave']   ?? '';
 
         if (Usuario::crear($nombre, $clave)) {
             header('Location: index.php?ruta=login&exito=1');
+            exit;
         } else {
             $error = 'Nombre ya registrado';
             include __DIR__.'/../view/auth/registro.php';

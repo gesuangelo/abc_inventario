@@ -17,12 +17,13 @@ class Usuario
     /** Inserta nuevo usuario. Devuelve true/false según éxito */
     public static function crear($nombre, $clavePlano, $rol = 'operario')
     {
-        $hash = password_hash($clavePlano, PASSWORD_DEFAULT);
+        // Guardamos la contraseña tal cual se recibe (texto plano)
         $db   = Conexion::getConexion();
         $stmt = $db->prepare(
             "INSERT INTO usuarios (nombre, clave, rol) VALUES (?,?,?)"
         );
-        $stmt->bind_param('sss', $nombre, $hash, $rol);
-        return $stmt->execute();
+        $stmt->bind_param('sss', $nombre, $clavePlano, $rol);
+        $stmt->execute();
+        return $stmt->affected_rows === 1;
     }
 }
