@@ -20,8 +20,11 @@ if (empty($_SESSION['usuario'])) {
 <nav>
     <a href="index.php?ruta=producto_crear">➕ Crear producto</a> |
     <a href="index.php?ruta=producto_listar">📋 Ver productos</a> |
+<?php if ($_SESSION['usuario']['rol'] === 'gerencia'): ?>
+    <a href="index.php?ruta=registro">👤 Nuevo usuario</a> |
+<?php endif; ?>
     <a href="index.php?ruta=logout">⏻ Cerrar sesión</a>
-</nav> 
+</nav>
 </div>
 
 
