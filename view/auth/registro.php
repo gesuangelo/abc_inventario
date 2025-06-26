@@ -17,6 +17,14 @@
     <label>Contraseña
         <input type="password" name="clave" required>
     </label><br>
+
+    <label>Rol
+        <select name="rol">
+            <option value="gerencia">Gerencia</option>
+            <option value="operario" selected>Operario</option>
+        </select>
+    </label><br>
+
     <button type="submit">Crear cuenta</button>
 </form>
 </div>
