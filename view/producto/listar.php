@@ -1,3 +1,4 @@
+<!-- Tabla con los productos almacenados -->
 <!DOCTYPE html>
 <html lang="es">
 <head>

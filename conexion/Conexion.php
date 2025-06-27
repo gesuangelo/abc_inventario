@@ -1,5 +1,8 @@
 <?php
 /**
+ * Maneja una conexion mysqli compartida con la base de datos.
+ * Utiliza un patron singleton para reutilizar la misma conexion.
+ *
  * Conexion.php
  * Clase para gestionar la conexión a la base de datos MySQL
  */

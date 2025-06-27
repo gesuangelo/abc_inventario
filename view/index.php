@@ -1,4 +1,5 @@
 <?php
+// Vista principal del menú luego de iniciar sesión
 if (session_status() === PHP_SESSION_NONE) session_start();
 if (empty($_SESSION['usuario'])) {
     header('Location: index.php?ruta=login');

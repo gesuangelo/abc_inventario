@@ -1,4 +1,7 @@
 <?php
+/**
+ * Controlador para operaciones sobre productos del inventario.
+ */
 // controller/ProductoController.php
 
 require_once __DIR__ . '/../model/Producto.php';
@@ -8,6 +11,9 @@ class ProductoController
 {
     /* ---------- acciones de vista ---------- */
 
+    /**
+     * Muestra el listado de productos
+     */
     public static function listar()
     {
         //session_start();                       // protege con login
@@ -18,6 +24,9 @@ class ProductoController
     private const UBICACIONES = [
         'Bodega 1','Bodega 2','Bodega 3','Por enviar','Enviado'
     ];
+    /**
+     * Despliega el formulario para crear un producto
+     */
     public static function mostrarCrear()
     {
         //session_start();
@@ -25,6 +34,9 @@ class ProductoController
         include __DIR__ . '/../view/producto/crear.php';
     }
 
+    /**
+     * Carga el formulario de edicion para un producto
+     */
     public static function mostrarEditar()
     {
         session_start();
@@ -40,6 +52,9 @@ class ProductoController
 
     /* ---------- procesadores de formularios ---------- */
 
+    /**
+     * Procesa el formulario de creacion y registra el producto
+     */
     public static function procesarCrear()
 {
     // 1. Guardamos el producto
@@ -57,6 +72,9 @@ class ProductoController
          . ($ok ? '&msg=creado' : '&err=1'));
 }
 
+    /**
+     * Actualiza un producto existente
+     */
 public static function procesarEditar()
 {
     $id         = $_POST['id'];
@@ -72,6 +90,9 @@ public static function procesarEditar()
 }
 
 
+    /**
+     * Elimina un producto del sistema
+     */
     public static function eliminar()
     {
         session_start();
@@ -90,6 +111,9 @@ public static function procesarEditar()
 
     /* ---------- helper ---------- */
 
+    /**
+     * Verifica que el usuario haya iniciado sesion
+     */
     private static function asegurarLogin()
     {
         if (empty($_SESSION['usuario'])) {
@@ -98,6 +122,9 @@ public static function procesarEditar()
         }
     }
 
+    /**
+     * Muestra el historial de ubicaciones de un producto
+     */
     public static function movimientos()
 {
     session_start();

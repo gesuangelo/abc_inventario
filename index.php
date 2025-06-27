@@ -1,4 +1,8 @@
 <?php
+/**
+ * Punto de entrada principal de la aplicacion.
+ * Segun el parametro "ruta" se dirige al controlador correspondiente.
+ */
 // index.php: punto de entrada de la aplicación
 session_start();
 
@@ -11,6 +15,7 @@ require_once 'controller/UsuarioController.php';
 // Determinar la ruta (por ejemplo: ?ruta=login, ?ruta=registro, ?ruta=productos)
 $ruta = isset($_GET['ruta']) ? $_GET['ruta'] : 'login';
 
+// Enrutamos la peticion segun la ruta indicada
 switch ($ruta) {
     case 'producto_movimientos':
         ProductoController::movimientos();

@@ -1,14 +1,24 @@
 <?php
+/**
+ * Controlador encargado de la autenticacion de usuarios.
+ * Maneja formularios de login y registro.
+ */
 // controller/AuthController.php
 require_once __DIR__.'/../model/Usuario.php';
 
 class AuthController
 {
+    /**
+     * Muestra el formulario de inicio de sesión
+     */
     public static function mostrarLogin()
     {
         include __DIR__.'/../view/auth/login.php';
     }
 
+    /**
+     * Muestra el formulario de registro (solo gerencia)
+     */
     public static function mostrarRegistro()
     {
         //session_start();
@@ -20,6 +30,9 @@ class AuthController
         include __DIR__.'/../view/auth/registro.php';
     }
 
+    /**
+     * Valida las credenciales y crea la sesion de usuario
+     */
     public static function procesarLogin()
 {
     $nombre = trim($_POST['usuario'] ?? '');
@@ -41,6 +54,9 @@ class AuthController
 }
 
 
+    /**
+     * Procesa el formulario de registro y crea un nuevo usuario
+     */
     public static function procesarRegistro()
     {
         session_start();

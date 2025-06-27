@@ -1,4 +1,7 @@
 <?php
+/**
+ * Modelo para operaciones CRUD de usuarios.
+ */
 // model/Usuario.php
 require_once __DIR__.'/../conexion/Conexion.php';
 

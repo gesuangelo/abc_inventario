@@ -1,3 +1,4 @@
+<!-- Historial de movimientos del producto -->
 <!DOCTYPE html>
 <html lang="es">
 <head>

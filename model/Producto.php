@@ -1,4 +1,7 @@
 <?php
+/**
+ * Modelo de acceso a la tabla de productos.
+ */
 // model/Producto.php
 // Acceso CRUD a la tabla productos
 

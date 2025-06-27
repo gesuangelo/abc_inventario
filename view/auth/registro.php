@@ -1,4 +1,6 @@
-<?php if (session_status() === PHP_SESSION_NONE) session_start(); ?>
+<?php
+// Formulario de registro de usuario
+if (session_status() === PHP_SESSION_NONE) session_start(); ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
