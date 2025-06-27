@@ -1,10 +1,16 @@
 <?php
+/**
+ * Controlador para gestion de usuarios del sistema.
+ */
 // controller/UsuarioController.php
 
 require_once __DIR__ . '/../model/Usuario.php';
 
 class UsuarioController
 {
+    /**
+     * Comprueba que el usuario autenticado sea de gerencia
+     */
     private static function asegurarGerencia()
     {
         if (empty($_SESSION['usuario']) || $_SESSION['usuario']['rol'] !== 'gerencia') {
@@ -13,6 +19,9 @@ class UsuarioController
         }
     }
 
+    /**
+     * Lista todos los usuarios registrados
+     */
     public static function listar()
     {
         //session_start();
@@ -21,6 +30,9 @@ class UsuarioController
         include __DIR__ . '/../view/usuario/listar.php';
     }
 
+    /**
+     * Despliega el formulario de edicion de un usuario
+     */
     public static function mostrarEditar()
     {
         //session_start();
@@ -31,6 +43,9 @@ class UsuarioController
         include __DIR__ . '/../view/usuario/editar.php';
     }
 
+    /**
+     * Guarda los cambios realizados a un usuario
+     */
     public static function procesarActualizar()
     {
         session_start();
@@ -43,6 +58,9 @@ class UsuarioController
         header('Location: index.php?ruta=usuario_listar&msg=actualizado');
     }
 
+    /**
+     * Elimina un usuario del sistema
+     */
     public static function eliminar()
     {
         session_start();

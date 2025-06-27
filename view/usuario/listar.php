@@ -1,3 +1,4 @@
+<!-- Lista de usuarios registrados -->
 <!DOCTYPE html>
 <html lang="es">
 <head>

@@ -1,3 +1,4 @@
+<!-- Formulario de edición de usuario -->
 <!DOCTYPE html>
 <html lang="es">
 <head>

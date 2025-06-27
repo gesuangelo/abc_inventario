@@ -1,3 +1,4 @@
+<!-- Historial de movimientos del producto -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -8,7 +9,7 @@
 <body>
 <?php include __DIR__ . '/../templates/header.php'; ?>
 <div class="card form-centered">
-    <h2>Tracking de “<?= htmlspecialchars($producto['nombre']) ?>”</h2>
+    <h2>Historial de: <?= htmlspecialchars($producto['nombre']) ?></h2>
 
 <table border="1">
     <thead>

@@ -1,3 +1,4 @@
+<!-- Formulario para registrar un nuevo producto -->
 <!DOCTYPE html>
 <html lang="es">
 <head>

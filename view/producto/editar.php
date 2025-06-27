@@ -1,3 +1,4 @@
+<!-- Formulario de edición de producto -->
 <!DOCTYPE html>
 <html lang="es">
 <head>

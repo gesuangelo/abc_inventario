@@ -1,5 +1,8 @@
 <?php
-// model/Producto.php
+/**
+ * Modelo de acceso a la tabla de productos.
+ */
+
 // Acceso CRUD a la tabla productos
 
 require_once __DIR__ . '/../conexion/Conexion.php';

@@ -1,4 +1,4 @@
-/* ------------------- variables (fácil de ajustar después) ------------------ */
+/*variables (fácil de ajustar después)*/
 :root{
     --bg-main:#EDF1F5;
     --bg-card:#FFFFFF;
@@ -11,7 +11,7 @@
     --font:"Segoe UI", Helvetica, Arial, sans-serif;
   }
   
-  /* ------------------- reset/estructura básica ------------------------------ */
+  /*reset/estructura básica*/
   *{box-sizing:border-box;margin:0;padding:0;}
   body{
     font-family:var(--font);
@@ -22,7 +22,7 @@
   a{color:var(--accent-soft);text-decoration:none;}
   a:hover{color:var(--accent);}
   
-  /* ------------------- cabecera --------------------------------------------- */
+  /*cabecera*/
   header{
     background:var(--accent);
     color:#fff;
@@ -34,20 +34,10 @@
 header{ text-align:center; }
 header h1{font-size:1.6rem;font-weight:600;}
 nav.menu{display:flex;flex-direction:column;align-items:center;gap:10px;margin:15px 0;}
-nav.menu a{
-  display:block;
-  width:200px;
-  text-align:center;
-  background:var(--accent);
-  color:#fff;
-  padding:10px 20px;
-  border-radius:var(--radius);
-  box-shadow:var(--shadow);
-  font-weight:500;
-}
+nav.menu a{display:block;background:var(--accent);color:#fff;padding:10px 20px;border-radius:var(--radius);box-shadow:var(--shadow);font-weight:500;}
 nav.menu a:hover{background:var(--accent-soft);color:#fff;}
   
-  /* ------------------- tarjetas / contenedores ------------------------------ */
+  /*tarjetas / contenedores*/
   .card{
     background:var(--bg-card);
     padding:20px;
@@ -55,7 +45,7 @@ nav.menu a:hover{background:var(--accent-soft);color:#fff;}
     box-shadow:var(--shadow);
   }
   
-  /* ------------------- formularios ------------------------------------------ */
+  /*formularios*/
   form label{display:block;margin-bottom:12px;font-weight:500;color:var(--accent);}
   form input,form select{
     width:100%;padding:8px 10px;border:1px solid #ccc;border-radius:var(--radius);
@@ -66,7 +56,7 @@ nav.menu a:hover{background:var(--accent-soft);color:#fff;}
   }
   form button:hover{background:var(--accent-soft);}
   
-  /* ------------------- tablas ------------------------------------------------ */
+  /*tablas*/
   table{
     width:100%;border-collapse:collapse;background:var(--bg-card);
     box-shadow:var(--shadow);
@@ -78,33 +68,33 @@ nav.menu a:hover{background:var(--accent-soft);color:#fff;}
   th{background:var(--accent);color:#fff;}
   tr:hover td{background:#f7f9fb;}
   
-  /* ------------------- mensajes --------------------------------------------- */
+  /*mensajes*/
 .ok   {color:var(--ok);margin:10px 0;font-weight:bold;}
 .error{color:var(--error);margin:10px 0;font-weight:bold;}
 .centrado{text-align:center;}
   
-  /* ------------------- botones de acción en tabla --------------------------- */
+  /*botones de accion en la caja*/
   .action{font-size:.9rem;margin-right:8px}
   .action.edit   {color:var(--accent-soft);}
   .action.delete {color:var(--error);}
   .action.hist   {color:var(--accent);}
   
   .card.form-centered{
-    max-width:600px;          /* ancho máximo (ajústalo a tu gusto) */
-    margin:0 auto 25px auto;  /* centra horizontalmente y deja 25 px abajo */
+    max-width:600px;         
+    margin:0 auto 25px auto;  
   }
   
-  @media (min-width:768px){   /* un poco más ancho en pantallas grandes */
+  @media (min-width:768px){  
     .card.form-centered{max-width:560px;}
   }
 
   .card.fit{
-    display:block;          /* ahora es un bloque, se puede centrar con margin:auto */
-    width:max-content;      /* mantiene el “shrink-wrap” (ancho = contenido)        */
-    margin:0 auto 25px;     /* auto a izquierda/derecha  ➜  centrado                */
-    padding: 10px;;              /* conserva tu preferencia de cero padding lateral     */
+    display:block;        
+    width:max-content;     
+    margin:0 auto 25px;   
+    padding: 10px;;             
   }
-  /* Quitamos anchura forzada a la tabla dentro de ella */
+ 
   .card.fit > table { width:auto; }
 
   footer{

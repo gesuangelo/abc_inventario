@@ -9,8 +9,10 @@ require_once 'controller/ProductoController.php';
 require_once 'controller/UsuarioController.php';
 
 // Determinar la ruta (por ejemplo: ?ruta=login, ?ruta=registro, ?ruta=productos)
+//Si existe una ruta en la url se le asigna a la variable ruta, si no, le asigna login 
 $ruta = isset($_GET['ruta']) ? $_GET['ruta'] : 'login';
 
+//opciones de ruta en un switch
 switch ($ruta) {
     case 'producto_movimientos':
         ProductoController::movimientos();
@@ -52,8 +54,6 @@ switch ($ruta) {
         UsuarioController::eliminar();
         break;
         
-    
-    /* ---------- cerrar sesión ---------- */
     case 'logout':
         session_start();
         session_destroy();
@@ -72,12 +72,9 @@ switch ($ruta) {
     case 'procesar_registro':
         AuthController::procesarRegistro();
         break;
-    case 'menu':                 // pequeño menú después del login
+    case 'menu':                 
         include __DIR__.'/view/index.php';
         break;
-
-    
-        // Aquí luego pondrás rutas para productos, logout, etc.
 
     default:
         echo 'Ruta no encontrada';

@@ -1,5 +1,8 @@
 <?php
-// model/Movimiento.php
+/**
+ * Modelo que registra y consulta movimientos de productos.
+ */
+
 require_once __DIR__ . '/../conexion/Conexion.php';
 
 class Movimiento

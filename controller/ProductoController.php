@@ -1,13 +1,19 @@
 <?php
-// controller/ProductoController.php
+/**
+ * Controlador para operaciones sobre productos del inventario.
+ */
+ 
 
 require_once __DIR__ . '/../model/Producto.php';
 require_once __DIR__ . '/../model/Movimiento.php';
 
 class ProductoController
 {
-    /* ---------- acciones de vista ---------- */
+    /*acciones de vista*/
 
+    /**
+     * Muestra el listado de productos
+     */
     public static function listar()
     {
         //session_start();                       // protege con login
@@ -18,6 +24,9 @@ class ProductoController
     private const UBICACIONES = [
         'Bodega 1','Bodega 2','Bodega 3','Por enviar','Enviado'
     ];
+    /**
+     * Despliega el formulario para crear un producto
+     */
     public static function mostrarCrear()
     {
         //session_start();
@@ -25,6 +34,9 @@ class ProductoController
         include __DIR__ . '/../view/producto/crear.php';
     }
 
+    /**
+     * Carga el formulario de edicion para un producto
+     */
     public static function mostrarEditar()
     {
         session_start();
@@ -38,8 +50,11 @@ class ProductoController
         include __DIR__ . '/../view/producto/editar.php';
     }
 
-    /* ---------- procesadores de formularios ---------- */
+    /*procesadores de formularios*/
 
+    /**
+     * Procesa el formulario de creacion y registra el producto
+     */
     public static function procesarCrear()
 {
     // 1. Guardamos el producto
@@ -57,6 +72,9 @@ class ProductoController
          . ($ok ? '&msg=creado' : '&err=1'));
 }
 
+    /**
+     * Actualiza un producto existente
+     */
 public static function procesarEditar()
 {
     $id         = $_POST['id'];
@@ -72,12 +90,15 @@ public static function procesarEditar()
 }
 
 
+    /**
+     * Elimina un producto del sistema
+     */
     public static function eliminar()
     {
         session_start();
     self::asegurarLogin();
 
-    /* 🔒 Permiso solo para GERENCIA */
+    /* Permiso solo para GERENCIA */
     if ($_SESSION['usuario']['rol'] !== 'gerencia') {
         // Opcional: mensaje de “sin permiso”
         header('Location: index.php?ruta=producto_listar&err=perm');
@@ -88,8 +109,11 @@ public static function procesarEditar()
         header('Location: index.php?ruta=producto_listar&msg=eliminado');
     }
 
-    /* ---------- helper ---------- */
+   
 
+    /**
+     * Verifica que el usuario haya iniciado sesion
+     */
     private static function asegurarLogin()
     {
         if (empty($_SESSION['usuario'])) {
@@ -98,9 +122,12 @@ public static function procesarEditar()
         }
     }
 
+    /**
+     * Muestra el historial de ubicaciones de un producto
+     */
     public static function movimientos()
 {
-    session_start();
+    //session_start();
     self::asegurarLogin();
 
     $id         = $_GET['id'] ?? 0;
