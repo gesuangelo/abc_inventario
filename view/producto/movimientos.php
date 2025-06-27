@@ -9,9 +9,9 @@
 <body>
 <?php include __DIR__ . '/../templates/header.php'; ?>
 <div class="card form-centered">
-    <h2>Historial de: <?= htmlspecialchars($producto['nombre']) ?></h2>
-
-<table border="1">
+    <p class="centrado">
+        <a href="index.php?ruta=producto_listar">⬅ Volver al listado</a>
+    </p>
     <thead>
         <tr><th>Ubicación</th><th>Fecha y hora</th></tr>
     </thead>
