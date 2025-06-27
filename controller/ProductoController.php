@@ -2,14 +2,14 @@
 /**
  * Controlador para operaciones sobre productos del inventario.
  */
-// controller/ProductoController.php
+ 
 
 require_once __DIR__ . '/../model/Producto.php';
 require_once __DIR__ . '/../model/Movimiento.php';
 
 class ProductoController
 {
-    /* ---------- acciones de vista ---------- */
+    /*acciones de vista*/
 
     /**
      * Muestra el listado de productos
@@ -50,7 +50,7 @@ class ProductoController
         include __DIR__ . '/../view/producto/editar.php';
     }
 
-    /* ---------- procesadores de formularios ---------- */
+    /*procesadores de formularios*/
 
     /**
      * Procesa el formulario de creacion y registra el producto
@@ -98,7 +98,7 @@ public static function procesarEditar()
         session_start();
     self::asegurarLogin();
 
-    /* 🔒 Permiso solo para GERENCIA */
+    /* Permiso solo para GERENCIA */
     if ($_SESSION['usuario']['rol'] !== 'gerencia') {
         // Opcional: mensaje de “sin permiso”
         header('Location: index.php?ruta=producto_listar&err=perm');
@@ -109,7 +109,7 @@ public static function procesarEditar()
         header('Location: index.php?ruta=producto_listar&msg=eliminado');
     }
 
-    /* ---------- helper ---------- */
+   
 
     /**
      * Verifica que el usuario haya iniciado sesion

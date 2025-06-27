@@ -1,4 +1,3 @@
-<!-- Tabla con los productos almacenados -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -12,15 +11,15 @@
 
 
 <?php
-if (session_status() === PHP_SESSION_NONE) session_start();   // ya tienes la sesión
-$esGerencia = ($_SESSION['usuario']['rol'] === 'gerencia');   // 💡 ¡aquí se crea!
+if (session_status() === PHP_SESSION_NONE) session_start(); 
+$esGerencia = ($_SESSION['usuario']['rol'] === 'gerencia');  
 ?>
 
+<?php if (isset($_GET['msg'])): ?>
+    <p class="ok">Producto <?= htmlspecialchars($_GET['msg']) ?> correctamente</p>
+<?php endif; ?>
 <div  class="card fit">
     <h2>Productos registrados</h2>
-    <?php if (isset($_GET['msg'])): ?>
-        <p class="ok centrado">Producto <?= htmlspecialchars($_GET['msg']) ?> correctamente</p>
-    <?php endif; ?>
     <table border="1">
     <thead>
         <tr>

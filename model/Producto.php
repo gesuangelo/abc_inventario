@@ -2,7 +2,7 @@
 /**
  * Modelo de acceso a la tabla de productos.
  */
-// model/Producto.php
+
 // Acceso CRUD a la tabla productos
 
 require_once __DIR__ . '/../conexion/Conexion.php';
