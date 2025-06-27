@@ -10,18 +10,19 @@ if (empty($_SESSION['usuario'])) {
 <head>
     <meta charset="UTF-8">
     <title>Inventario | Menú</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="/abc_inventario/assets/css/style.css">
 </head>
 <body>
 <?php include __DIR__ . '/templates/header.php'; ?>
 <div class="card form-centered">
    <h2>Bienvenido, <?= htmlspecialchars($_SESSION['usuario']['nombre']) ?></h2>
 
-<nav>
-    <a href="index.php?ruta=producto_crear">➕ Crear producto</a> |
-    <a href="index.php?ruta=producto_listar">📋 Ver productos</a> |
+<nav class="menu">
+    <a href="index.php?ruta=producto_crear">➕ Crear producto</a>
+    <a href="index.php?ruta=producto_listar">📋 Ver productos</a>
 <?php if ($_SESSION['usuario']['rol'] === 'gerencia'): ?>
-    <a href="index.php?ruta=registro">👤 Nuevo usuario</a> |
+    <a href="index.php?ruta=registro">👤 Nuevo usuario</a>
+    <a href="index.php?ruta=usuario_listar">👥 Ver usuarios</a>
 <?php endif; ?>
     <a href="index.php?ruta=logout">⏻ Cerrar sesión</a>
 </nav>
