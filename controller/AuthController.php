@@ -27,10 +27,7 @@ class AuthController
 
     $usuario = Usuario::obtenerPorNombre($nombre);
 
-    // Antes: if ($usuario && password_verify($clave, $usuario['clave'])) { … }
-    // Ahora, comparación directa de texto plano:
-    if ($usuario && $usuario['clave'] === $clave) {
-        // Login exitoso
+    if ($usuario && password_verify($clave, $usuario['clave'])) {
         $_SESSION['usuario'] = $usuario;
         header('Location: index.php?ruta=menu');
         exit;
