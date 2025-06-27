@@ -127,7 +127,7 @@ public static function procesarEditar()
      */
     public static function movimientos()
 {
-    session_start();
+    //session_start();
     self::asegurarLogin();
 
     $id         = $_GET['id'] ?? 0;
